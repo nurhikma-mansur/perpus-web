@@ -15,22 +15,22 @@
             <div id="kt_header_menu" class="header-menu header-menu-left header-menu-mobile header-menu-layout-default">
                 <!--begin::Header Nav-->
                 <ul class="menu-nav ">
-                    <li class="menu-item menu-item-here ">
+                    <li class="menu-item {{ request()->is('/') ? 'menu-item-here' : '' }} ">
                         <a href="/" class="menu-link">
                             <span class="menu-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ request()->is('e-book*') ? 'menu-item-here' : '' }}">
                         <a href="/e-book" class="menu-link">
                             <span class="menu-text">E Book</span>
                         </a>
                     </li>
-                    <li class="menu-item">
-                        <a href="/" class="menu-link">
+                    <li class="menu-item  {{ request()->is('archive*') ? 'menu-item-here' : '' }}">
+                        <a href="/archive" class="menu-link">
                             <span class="menu-text">Arsip Skripsi</span>
                         </a>
                     </li>
-                    <li class="menu-item menu-item-submenu menu-item-rel" data-menu-toggle="click" aria-haspopup="true">
+                    <li class="menu-item menu-item-submenu menu-item-rel  {{ request()->is('master-data*') ? 'menu-item-here' : '' }}" data-menu-toggle="click" aria-haspopup="true">
                         <a href="javascript:;" class="menu-link menu-toggle">
                             <span class="menu-text">Master Data</span>
                             <i class="menu-arrow"></i>

@@ -8,7 +8,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'e-book', 'as' => 'e-book.'], function(){
-    Route::get('/', [EbookController::class, 'index']);
+    Route::get('/', [EbookController::class, 'index'])->name('index');
+    Route::get('/create', [EbookController::class, 'create'])->name('create');
 });
 
 Route::get('/', function () {

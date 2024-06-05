@@ -12,4 +12,8 @@ class EbookController extends Controller
     public function index(){
         return view("$this->dir.index");
     }
+
+    public function create(){
+        return view("$this->dir.form");
+    }
 }
