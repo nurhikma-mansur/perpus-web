@@ -1,0 +1,52 @@
+<x-layouts.app>
+    <div class="container">
+        <div class="card card-custom">
+            <div class="card-header">
+                <div class="card-title">
+                    Daftar E Book
+                </div>
+                <div class="card-toolbar">
+                    <a href="{{ route('archive.create') }}" class="btn btn-primary">
+                        Tambah Data
+                    </a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>Jurusan</th>
+                            <th>Tahun Lulus</th>
+                            <th>Skripsi</th>
+                            <th class="text-right" >Aksi</th.>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for ($i = 0; $i < 5; $i++)
+                        <tr>
+                            <td style="align-content: center;" >{{ $i+1 }}</td>
+                            <td style="align-content: center;" >
+                                <span class="d-block font-weight-bold" >{{ fake()->name }}</span>
+                                <span>60200120116</span>
+                            </td>
+                            <td style="align-content: center;" >{{ fake()->name }}</td>
+                            <td style="align-content: center;" >{{ fake()->year }}</td>
+                            <td style="align-content: center; width: 210px;" >{{ fake()->sentence }}</td>
+                            <td style="align-content: center;"  class="text-right" >
+                                <button class="btn btn-sm btn-light-danger mr-2">
+                                    Hapus
+                                </button>
+                                <button class="btn btn-sm btn-light-primary">
+                                    Detail
+                                </button>
+                            </td>
+                        </tr>
+                        @endfor
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</x-layouts.app>
