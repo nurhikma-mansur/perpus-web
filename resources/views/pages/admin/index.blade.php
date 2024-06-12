@@ -3,10 +3,10 @@
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">
-                    Daftar E Book
+                    Daftar Admin
                 </div>
                 <div class="card-toolbar">
-                    <a href="{{ route('admin.archive.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.master-data.admin.create') }}" class="btn btn-primary">
                         Tambah Data
                     </a>
                 </div>
@@ -16,10 +16,9 @@
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
-                            <th>Nama</th>
-                            <th>Jurusan</th>
-                            <th>Tahun Lulus</th>
-                            <th>Skripsi</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Status</th>
                             <th class="text-right" >Aksi</th.>
                         </tr>
                     </thead>
@@ -27,13 +26,9 @@
                         @for ($i = 0; $i < 5; $i++)
                         <tr>
                             <td style="align-content: center;" >{{ $i+1 }}</td>
-                            <td style="align-content: center;" >
-                                <span class="d-block font-weight-bold" >{{ fake()->name }}</span>
-                                <span>60200120116</span>
-                            </td>
+                            <td style="align-content: center;" >{{ fake()->sentence }}</td>
                             <td style="align-content: center;" >{{ fake()->name }}</td>
                             <td style="align-content: center;" >{{ fake()->year }}</td>
-                            <td style="align-content: center; width: 210px;" >{{ fake()->sentence }}</td>
                             <td style="align-content: center;"  class="text-right" >
                                 <button class="btn btn-sm btn-light-danger mr-2">
                                     Hapus

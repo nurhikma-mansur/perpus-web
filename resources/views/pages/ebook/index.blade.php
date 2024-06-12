@@ -6,7 +6,7 @@
                     Daftar E Book
                 </div>
                 <div class="card-toolbar">
-                    <a href="{{ route('e-book.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.e-book.create') }}" class="btn btn-primary">
                         Tambah Data
                     </a>
                 </div>

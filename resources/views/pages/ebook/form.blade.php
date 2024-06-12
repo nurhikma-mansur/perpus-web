@@ -7,7 +7,7 @@
                         Tambah Data
                     </div>
                     <div class="card-toolbar">
-                        <a href="{{ route('e-book.index') }}" class="btn btn-light-primary">
+                        <a href="{{ route('admin.e-book.index') }}" class="btn btn-light-primary">
                             Kembali
                         </a>
                     </div>
@@ -108,7 +108,7 @@
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-5">
-                <a href="/e-book" class="btn btn-outline-primary">
+                <a href="/admin/e-book" class="btn btn-outline-primary">
                     Kembali
                 </a>
                 <button class="btn btn-primary ml-5">
