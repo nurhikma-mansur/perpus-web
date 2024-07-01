@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class EbookController extends Controller
+class AdminController extends Controller
 {
-
-    protected $dir = 'pages.ebook';
+    protected $dir = 'pages.admin';
 
     public function index(){
         return view("$this->dir.index");

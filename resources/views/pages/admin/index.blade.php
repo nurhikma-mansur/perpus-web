@@ -3,10 +3,10 @@
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">
-                    Daftar E Book
+                    Daftar Admin
                 </div>
                 <div class="card-toolbar">
-                    <a href="{{ route('admin.e-book.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.master-data.admin.create') }}" class="btn btn-primary">
                         Tambah Data
                     </a>
                 </div>
@@ -16,9 +16,9 @@
                     <thead class="thead-light">
                         <tr>
                             <th>#</th>
-                            <th>Judul</th>
-                            <th>Penulis</th>
-                            <th>Tahun</th>
+                            <th>Name</th>
+                            <th>Username</th>
+                            <th>Status</th>
                             <th class="text-right" >Aksi</th.>
                         </tr>
                     </thead>

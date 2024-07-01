@@ -16,46 +16,21 @@
                 <!--begin::Header Nav-->
                 <ul class="menu-nav ">
                     <li class="menu-item {{ request()->is('/') ? 'menu-item-here' : '' }} ">
-                        <a href="/admin" class="menu-link">
+                        <a href="/" class="menu-link">
                             <span class="menu-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('admin/e-book*') ? 'menu-item-here' : '' }}">
-                        <a href="/admin/e-book" class="menu-link">
+                    <li class="menu-item {{ request()->is('e-book*') ? 'menu-item-here' : '' }}">
+                        <a href="/e-book" class="menu-link">
                             <span class="menu-text">E Book</span>
                         </a>
                     </li>
-                    <li class="menu-item  {{ request()->is('admin/archive*') ? 'menu-item-here' : '' }}">
-                        <a href="/admin/archive" class="menu-link">
+                    <li class="menu-item  {{ request()->is('archive*') ? 'menu-item-here' : '' }}">
+                        <a href="/archive" class="menu-link">
                             <span class="menu-text">Arsip Skripsi</span>
                         </a>
                     </li>
-                    <li class="menu-item menu-item-submenu menu-item-rel  {{ request()->is('admin/master-data*') ? 'menu-item-here' : '' }}" data-menu-toggle="click" aria-haspopup="true">
-                        <a href="javascript:;" class="menu-link menu-toggle">
-                            <span class="menu-text">Master Data</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="menu-submenu menu-submenu-classic menu-submenu-left">
-                            <ul class="menu-subnav">
-                                <li class="menu-item" aria-haspopup="true">
-                                    <a href="/admin/master-data/admin" class="menu-link">
-                                        <i class="menu-bullet menu-bullet-dot">
-                                            <span></span>
-                                        </i>
-                                        <span class="menu-text">Admin</span>
-                                    </a>
-                                </li>
-                                <li class="menu-item" aria-haspopup="true">
-                                    <a href="/admin/account" class="menu-link">
-                                        <i class="menu-bullet menu-bullet-dot">
-                                            <span></span>
-                                        </i>
-                                        <span class="menu-text">Akun Terdaftar</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    
                 </ul>
                 <!--end::Header Nav-->
             </div>
