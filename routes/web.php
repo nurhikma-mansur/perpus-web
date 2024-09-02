@@ -31,6 +31,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
         });
 
     });
+
+    Route::group(['prefix' => 'report', 'as' => 'report.'], function(){
+        Route::view('/', 'pages.report.index');
+    });
     
     
 });
@@ -41,6 +45,10 @@ Route::get('/', function(){
 
 Route::group(['prefix' => 'e-book', 'as' => 'e-book.'], function(){
     Route::get('/', [StudentEbookController::class, 'index']);
+});
+
+Route::group(['prefix' => 'archive', 'as' => 'archive.'], function(){
+    Route::view('/', 'pages.students.archive.index');
 });
 
 
