@@ -30,6 +30,11 @@
                             <span class="menu-text">Arsip Skripsi</span>
                         </a>
                     </li>
+                    <li class="menu-item  {{ request()->is('admin/report*') ? 'menu-item-here' : '' }}">
+                        <a href="/admin/report" class="menu-link">
+                            <span class="menu-text">Report</span>
+                        </a>
+                    </li>
                     <li class="menu-item menu-item-submenu menu-item-rel  {{ request()->is('admin/master-data*') ? 'menu-item-here' : '' }}" data-menu-toggle="click" aria-haspopup="true">
                         <a href="javascript:;" class="menu-link menu-toggle">
                             <span class="menu-text">Master Data</span>
