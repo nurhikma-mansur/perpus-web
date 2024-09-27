@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
             Route::get('/', [AdminController::class, 'index'])->name('index');
             Route::get('/create', [AdminController::class, 'create'])->name('create');
+            Route::view('/detail/{user}', 'pages.admin.form')->name('detail');
         });
 
     });

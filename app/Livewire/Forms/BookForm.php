@@ -58,6 +58,7 @@ class BookForm extends Form
     #[Validate('required', message: 'Deskripsi fisik harus diisi')]
     public $description;
 
+
     public function setModel(Book $book){
         $this->book = $book;
         $this->fill($book);
