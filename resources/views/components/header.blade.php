@@ -1,11 +1,23 @@
+<?php
+
+use function Livewire\Volt\{state};
+
+$logout = function (){
+    Auth::logout();
+    return redirect('/login');
+};
+
+?>
+
 <div id="kt_header" class="header header-fixed">
     <!--begin::Container-->
+    @volt
     <div class="container d-flex align-items-stretch">
         <!--begin::Header Logo-->
         <div class="header-logo">
             <a href="index.html">
-                <img alt="Logo" src="assets/media/logos/logo-letter-9.png" class="logo-default max-h-40px" />
-                <img alt="Logo" src="assets/media/logos/logo-letter-1.png" class="logo-sticky max-h-40px" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/logo.svg') }}" class="logo-default max-h-60px" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/logo.svg') }}" class="logo-sticky max-h-60px" />
             </a>
         </div>
         <!--end::Header Logo-->
@@ -20,10 +32,36 @@
                             <span class="menu-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="menu-item {{ request()->is('admin/e-book*') ? 'menu-item-here' : '' }}">
+                    {{-- <li class="menu-item {{ request()->is('admin/e-book*') ? 'menu-item-here' : '' }}">
                         <a href="/admin/e-book" class="menu-link">
                             <span class="menu-text">E Book</span>
                         </a>
+                    </li> --}}
+                    <li class="menu-item menu-item-submenu menu-item-rel  {{ request()->is('admin/book*') ? 'menu-item-here' : '' }}" data-menu-toggle="click" aria-haspopup="true">
+                        <a href="javascript:;" class="menu-link menu-toggle">
+                            <span class="menu-text">Buku Induk</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+                            <ul class="menu-subnav">
+                                <li class="menu-item" aria-haspopup="true">
+                                    <a href="/admin/book" class="menu-link">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">Daftar Buku</span>
+                                    </a>
+                                </li>
+                                <li class="menu-item" aria-haspopup="true">
+                                    <a href="/admin/book/loan" class="menu-link">
+                                        <i class="menu-bullet menu-bullet-dot">
+                                            <span></span>
+                                        </i>
+                                        <span class="menu-text">Data Peminjaman</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="menu-item  {{ request()->is('admin/archive*') ? 'menu-item-here' : '' }}">
                         <a href="/admin/archive" class="menu-link">
@@ -61,6 +99,7 @@
                             </ul>
                         </div>
                     </li>
+                    
                 </ul>
                 <!--end::Header Nav-->
             </div>
@@ -75,7 +114,7 @@
                 <div class="topbar-item" data-toggle="dropdown" data-offset="0px,0px">
                     <div class="btn btn-icon btn-hover-transparent-white d-flex align-items-center btn-lg px-md-2 w-md-auto">
                         <span class="text-white opacity-70 font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                        <span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">Sean</span>
+                        <span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">{{ auth()->user()->name }}</span>
                         <span class="symbol symbol-35">
                             <span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">S</span>
                         </span>
@@ -92,7 +131,7 @@
                         </div>
                         <!--end::Symbol-->
                         <!--begin::Text-->
-                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">Sean Stone</div>
+                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">{{ auth()->user()->name}}</div>
                         <span class="label label-light-success label-lg font-weight-bold label-inline">3 messages</span>
                         <!--end::Text-->
                     </div>
@@ -156,7 +195,7 @@
                         <!--begin::Footer-->
                         <div class="navi-separator mt-3"></div>
                         <div class="navi-footer px-8 py-5">
-                            <a href="custom/user/login-v2.html" target="_blank" class="btn btn-light-primary font-weight-bold">Sign Out</a>
+                            <a href="javascript:;" wire:click="logout" class="btn btn-light-primary font-weight-bold">Sign Out</a>
                             <a href="custom/user/login-v2.html" target="_blank" class="btn btn-clean font-weight-bold">Upgrade Plan</a>
                         </div>
                         <!--end::Footer-->
@@ -169,5 +208,6 @@
         </div>
         <!--end::Topbar-->
     </div>
+    @endvolt
     <!--end::Container-->
 </div>

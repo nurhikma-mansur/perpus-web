@@ -6,17 +6,27 @@ use App\Http\Controllers\EbookController;
 use App\Http\Controllers\Student\EbookController as StudentEbookController;
 use Illuminate\Support\Facades\Route;
 
+Route::view('/login', 'pages.login')->name('login');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function(){
 
     Route::get('/', function () {
         return view('pages.index');
     });
     
-    Route::group(['prefix' => 'e-book', 'as' => 'e-book.'], function(){
-        Route::get('/', [EbookController::class, 'index'])->name('index');
-        Route::get('/create', [EbookController::class, 'create'])->name('create');
+    Route::group(['prefix' => 'book', 'as' => 'book.'], function(){
+
+
+        Route::view('/', 'pages.book.index')->name('index');
+        Route::view('/detail/{book}', 'pages.book.form')->name('detail');
+        Route::view('/create', 'pages.book.form')->name('create');
+
+        Route::group(['prefix' => 'loan', 'as' => 'loan.'], function(){
+            Route::view('/', 'pages.book-loan.index')->name('index');
+            Route::view('/create', 'pages.book-loan.form')->name('create');
+        });
     });
+    
     
     Route::group(['prefix' => 'archive', 'as' => 'archive.'], function(){
         Route::get('/', [ArchiveController::class, 'index'])->name('index');
@@ -39,16 +49,19 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     
 });
 
-Route::get('/', function(){
-    return view('pages.students.index');
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', function(){
+        return view('pages.students.index');
+    });
+    
+    Route::group(['prefix' => 'e-book', 'as' => 'e-book.'], function(){
+        Route::get('/', [StudentEbookController::class, 'index']);
+    });
+    
+    Route::group(['prefix' => 'archive', 'as' => 'archive.'], function(){
+        Route::view('/', 'pages.students.archive.index');
+    });
 });
 
-Route::group(['prefix' => 'e-book', 'as' => 'e-book.'], function(){
-    Route::get('/', [StudentEbookController::class, 'index']);
-});
-
-Route::group(['prefix' => 'archive', 'as' => 'archive.'], function(){
-    Route::view('/', 'pages.students.archive.index');
-});
 
 
