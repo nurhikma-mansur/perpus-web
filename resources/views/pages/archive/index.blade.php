@@ -1,9 +1,41 @@
+<?php 
+
+use function Livewire\Volt\{state, with, usesPagination};
+use App\Models\Archive;
+
+usesPagination();
+
+state([
+    'perpage' => 10,
+    'keyword' => '',
+]);
+
+with(fn() => [
+    'data' => Archive::
+    when(!empty($this->keyword), function($q){
+        $q->where('title', 'LIKE', "%$this->keyword%");
+    })
+    ->latest()
+    ->paginate($this->perpage)
+]);
+
+$delete_data = function (Archive $archive){
+    try {
+        $archive->delete();
+    } catch (\Throwable $th) {
+        throw $th;
+    }  
+};
+
+?>
+
 <x-layouts.app>
+    @volt
     <div class="container">
         <div class="card card-custom">
             <div class="card-header">
                 <div class="card-title">
-                    Daftar E Book
+                    Daftar Arsip
                 </div>
                 <div class="card-toolbar">
                     <a href="{{ route('admin.archive.create') }}" class="btn btn-primary">
@@ -19,34 +51,37 @@
                             <th>Nama</th>
                             <th>Jurusan</th>
                             <th>Tahun Lulus</th>
+                            <th>Penyiangan</th>
                             <th>Skripsi</th>
                             <th class="text-right" >Aksi</th.>
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 0; $i < 5; $i++)
+                        @foreach ($data as $i => $item)
                         <tr>
                             <td style="align-content: center;" >{{ $i+1 }}</td>
                             <td style="align-content: center;" >
-                                <span class="d-block font-weight-bold" >{{ fake()->name }}</span>
-                                <span>60200120116</span>
+                                <span class="d-block font-weight-bold" >{{ $item->name }}</span>
+                                <span>{{ $item->nim }}</span>
                             </td>
-                            <td style="align-content: center;" >{{ fake()->name }}</td>
-                            <td style="align-content: center;" >{{ fake()->year }}</td>
-                            <td style="align-content: center; width: 210px;" >{{ fake()->sentence }}</td>
+                            <td style="align-content: center;" >{{ $item->major }}</td>
+                            <td style="align-content: center;" >{{ $item->graduation_year }}</td>
+                            <td style="align-content: center; width: 120px;" >{{ $item->weeding ? 'Ya' : 'Tidak' }}</td>
+                            <td style="align-content: center; width: 210px;" >{{ $item->title }}</td>
                             <td style="align-content: center;"  class="text-right" >
-                                <button class="btn btn-sm btn-light-danger mr-2">
+                                <button type="button" wire:click="delete_data('{{ $item->id }}')" wire:confirm="Apakah yakin data ini ingin dihapus?"  class="btn btn-sm btn-light-danger mr-2">
                                     Hapus
                                 </button>
-                                <button class="btn btn-sm btn-light-primary">
+                                <a href="/admin/archive/detail/{{ $item->id }}" class="btn btn-sm btn-light-primary">
                                     Detail
-                                </button>
+                                </a>
                             </td>
                         </tr>
-                        @endfor
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    @endvolt
 </x-layouts.app>

@@ -11,20 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('archives', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->string('file');
-            $table->string('name');
+            $table->string('fullname');
             $table->string('nim');
             $table->string('major');
-            $table->string('graduation_year');
+            $table->unsignedInteger('semester');
             $table->string('title');
-            $table->string('classification_number');
-            $table->json('instructors');
-            $table->json('subjects');
-            $table->string('weeding');
-            $table->date('weeding_date')->nullable();
-            $table->text('abstract');
+            $table->date('start_date');
+            $table->date('end_date')->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('archives');
+        Schema::dropIfExists('loans');
     }
 };

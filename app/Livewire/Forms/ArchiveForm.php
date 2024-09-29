@@ -18,7 +18,7 @@ class ArchiveForm extends Form
     public $file;
     
     #[Validate('required', message: 'Nama harus diisi')]
-    public $title;
+    public $name;
     
     #[Validate('required', message: 'NIM harus diisi')]
     public $nim;
@@ -30,13 +30,25 @@ class ArchiveForm extends Form
     public $graduation_year;
     
     #[Validate('required', message: 'Judul skirpsi harus diisi')]
-    public $skrip_title;
+    public $title;
     
     #[Validate('required', message: 'Nomor klasifikasi harus diisi')]
     public $classification_number;
     
     #[Validate('required', message: 'Abstrak harus diisi')]
     public $abstract;
+
+    #[Validate('required', message: 'Subjek harus diisi')]
+    public $subjects;
+
+    #[Validate('required', message: 'Pembimbing harus diisi')]
+    public $instructors;
+
+    #[Validate('required', message: 'Status Penyiangan harus diisi')]
+    public $weeding;
+
+    #[Validate('required_if:weeding,1', message: 'Tanggal Penyiangan harus diisi')]
+    public $weeding_date;
 
     public function setModel(Archive $archive){
         $this->archive = $archive;
@@ -46,7 +58,7 @@ class ArchiveForm extends Form
     public function store(){
 
         try {
-            $archive = $this->except('archive');
+            $archive = $this->except('archive', 'newFile');
             $archive['file'] = $this->file->store('archives');
             Archive::create($archive);
         } catch (\Throwable $th) {
@@ -58,7 +70,7 @@ class ArchiveForm extends Form
     public function update(){
 
         try {
-            $archive = $this->except('archive');
+            $archive = $this->except('archive', 'newFile');
             if($this->newFile) $archive['file'] = $this->newFile->store('archives');
             $this->archive->update($archive);
         } catch (\Throwable $th) {

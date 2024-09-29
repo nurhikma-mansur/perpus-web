@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
         Route::group(['prefix' => 'loan', 'as' => 'loan.'], function(){
             Route::view('/', 'pages.book-loan.index')->name('index');
+            Route::view('/detail/{loan}', 'pages.book-loan.form')->name('detail');
             Route::view('/create', 'pages.book-loan.form')->name('create');
         });
     });
@@ -30,6 +31,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
     
     Route::group(['prefix' => 'archive', 'as' => 'archive.'], function(){
         Route::get('/', [ArchiveController::class, 'index'])->name('index');
+        Route::view('/detail/{archive}', 'pages.archive.form')->name('detail');
         Route::get('/create', [ArchiveController::class, 'create'])->name('create');
     });
 

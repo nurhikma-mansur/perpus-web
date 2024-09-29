@@ -9,6 +9,14 @@ class Archive extends Model
 {
     use HasFactory;
 
+    protected function casts(): array
+    {
+        return [
+            'instructors' => 'array',
+            'subjects' => 'array',
+        ];
+    }
+
     public function instructors(){
         $this->hasMany(ArchiveInstructor::class);
     }

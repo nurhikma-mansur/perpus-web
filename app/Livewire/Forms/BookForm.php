@@ -67,7 +67,7 @@ class BookForm extends Form
     public function store(){
 
         try {
-            $book = $this->except('book');
+            $book = $this->except('book', 'newFile', 'newCover');
             $book['file'] = $this->file->store('books');
             $book['cover'] = $this->cover->store('books');
             Book::create($book);

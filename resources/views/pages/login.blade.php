@@ -17,8 +17,10 @@ $submit = function (){
 	]);
 
 	if(Auth::attempt($this->only('username', 'password'))){
-		if(auth()->user()->is_admin){
+		if(auth()->user()->is_admin == 1){
 			return redirect()->intended('/admin');
+		} else {
+			return redirect()->intended('/');
 		}
 	}
 
