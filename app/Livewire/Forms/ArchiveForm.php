@@ -60,6 +60,7 @@ class ArchiveForm extends Form
         try {
             $archive = $this->except('archive', 'newFile');
             $archive['file'] = $this->file->store('archives');
+            $archive['filename'] = $this->file->getClientOriginalName();
             Archive::create($archive);
         } catch (\Throwable $th) {
             throw $th;
@@ -71,7 +72,10 @@ class ArchiveForm extends Form
 
         try {
             $archive = $this->except('archive', 'newFile');
-            if($this->newFile) $archive['file'] = $this->newFile->store('archives');
+            if($this->newFile) {
+                $archive['file'] = $this->newFile->store('archives');
+                $archive['filename'] = $this->newFile->getClientOriginalName();
+            }
             $this->archive->update($archive);
         } catch (\Throwable $th) {
             throw $th;

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 
 class EbookController extends Controller
@@ -14,6 +16,8 @@ class EbookController extends Controller
     }
 
     public function create(){
+    
         return view("$this->dir.form");
     }
+
 }

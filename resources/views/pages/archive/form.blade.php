@@ -98,11 +98,16 @@ $submit = function (){
                             <div class="form-group">
                                 <label>Jurusan</label>
                                 <select wire:model="form.major" class="form-control form-control-solid">
-                                    <option>-- Pilih Jurusan --</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option value="" >-- Pilih Jurusan --</option>
+                                    <option value="Teknik Informatika" >Teknik Informatika</option>
+                                    <option value="Teknik Arsitektur" >Teknik Arsitektur</option>
+                                    <option value="Teknik Perencanaan Wilayah dan Kota" >Teknik Perencanaan Wilayah dan Kota</option>
+                                    <option value="Matematika" >Matematika</option>
+                                    <option value="Sistem Informasi" >Sistem Informasi</option>
+                                    <option value="Biologi" >Biologi</option>
+                                    <option value="Fisika" >Fisika</option>
+                                    <option value="Kimia" >Kimia</option>
+                                    <option value="Peternakan" >Peternakan</option>
                                 </select>
                                 @error('form.major')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>

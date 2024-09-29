@@ -63,7 +63,6 @@ $delete_data = function (Book $book){
                 </div>
             </div>
         </div> --}}
-
         <div class="card card-custom py-0 mb-7">
             <div class="card-body py-0">
                 <div class="d-flex flex-md-row flex-column justify-content-md-between align-items-md-center align-items-start my-8">
