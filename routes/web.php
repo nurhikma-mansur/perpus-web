@@ -67,4 +67,6 @@ Route::group(['middleware' => 'auth'], function(){
 });
 
 
+Route::view('/registration', 'pages.registration.index')->name('registration');
+Route::view('/registration-success', 'pages.registration.success')->name('registration-success');
 
