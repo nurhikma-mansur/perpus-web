@@ -33,7 +33,7 @@ $submit = function (){
 	<!--begin::Head-->
 	<head><base href="../../../../">
 		<meta charset="utf-8" />
-		<title>Metronic | Login Page 1</title>
+		<title>Login | UIN Alauddin Makassar</title>
 		<meta name="description" content="Login page example" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 		<!--begin::Fonts-->
@@ -77,7 +77,7 @@ $submit = function (){
 						<!--end: Aside content-->
 						<!--begin: Aside footer for desktop-->
 						<div class="d-none flex-column-auto d-lg-flex justify-content-between mt-10">
-							<div class="opacity-70 font-weight-bold text-white">© 2020 Metronic</div>
+							<div class="opacity-70 font-weight-bold text-white">© 2024 UIN Alauddin Makassar</div>
 						</div>
 						<!--end: Aside footer for desktop-->
 					</div>
@@ -98,7 +98,7 @@ $submit = function (){
 							<!--begin::Form-->
 							<form wire:submit="submit" class="form" >
 								<div class="form-group">
-									<input wire:model="username" class="form-control form-control-solid h-auto py-5 px-6" type="text" placeholder="NIM" name="username" autocomplete="off" />
+									<input wire:model="username" class="form-control form-control-solid h-auto py-5 px-6" type="text" placeholder="Username" name="username" autocomplete="off" />
 									@error('username')
 										<p class="text-danger mt-1" >{{ $message  }}</p>
 									@enderror

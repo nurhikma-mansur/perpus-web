@@ -28,7 +28,7 @@
             <!--end::Heading-->
         </div>
         <!--end::Info-->
-        <!--begin::Toolbar-->
+        {{-- <!--begin::Toolbar-->
         <div class="d-flex align-items-center">
             <!--begin::Button-->
             <a href="#" class="btn btn-transparent-white font-weight-bold py-3 px-6 mr-2">Reports</a>
@@ -108,6 +108,6 @@
             </div>
             <!--end::Dropdown-->
         </div>
-        <!--end::Toolbar-->
+        <!--end::Toolbar--> --}}
     </div>
 </div>
