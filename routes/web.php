@@ -4,11 +4,13 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArchiveController;
 use App\Http\Controllers\EbookController;
 use App\Http\Controllers\Student\EbookController as StudentEbookController;
+use App\Http\Middleware\AdminMiddleware;
+use App\Http\Middleware\StudentMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::view('/login', 'pages.login')->name('login');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', AdminMiddleware::class]], function(){
 
     Route::get('/', function () {
         return view('pages.index');
@@ -49,10 +51,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::view('/', 'pages.report.index');
     });
     
-    
 });
 
-Route::group(['middleware' => 'auth'], function(){
+Route::group(['middleware' => ['auth', StudentMiddleware::class]], function(){
     Route::get('/', function(){
         return view('pages.students.index');
     });

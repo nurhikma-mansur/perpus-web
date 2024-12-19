@@ -1,4 +1,25 @@
+<?php
+
+use function Livewire\Volt\{state, form, usesFileUploads, mount};
+use App\Models\Visitor;
+use App\Models\Book;
+use App\Models\User;
+use App\Models\Archive;
+
+state(['book_count', 'archive_count', 'admin_count', 'female_count', 'male_count']);
+
+mount(function (){
+    $this->male_count = Visitor::where('gender', 'L')->count();
+    $this->female_count = Visitor::where('gender', 'P')->count(); 
+    $this->book_count = Book::count();
+    $this->archive_count = Archive::count();
+    $this->admin_count = User::where('role', 'admin')->count();
+})
+
+?>
+
 <x-layouts.app>
+    @volt
     <div class="container">
         <div class="row">
             <div class="col col-4">
@@ -12,8 +33,8 @@
                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                             </g>
                         </svg><!--end::Svg Icon--></span>
-                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">22</span>
-                        <span class="font-weight-bold text-muted font-size-sm">Laki Laki</span>
+                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $book_count }}</span>
+                        <span class="font-weight-bold text-muted font-size-sm">Total E-Book</span>
                     </div>
                     <!--end::Body-->
                 </div>
@@ -29,8 +50,8 @@
                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                             </g>
                         </svg><!--end::Svg Icon--></span>
-                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">22</span>
-                        <span class="font-weight-bold text-muted font-size-sm">Laki Laki</span>
+                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $archive_count }}</span>
+                        <span class="font-weight-bold text-muted font-size-sm">Total Arsip Skripsi</span>
                     </div>
                     <!--end::Body-->
                 </div>
@@ -46,8 +67,8 @@
                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                             </g>
                         </svg><!--end::Svg Icon--></span>
-                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">22</span>
-                        <span class="font-weight-bold text-muted font-size-sm">Laki Laki</span>
+                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $admin_count }}</span>
+                        <span class="font-weight-bold text-muted font-size-sm">Total Admin</span>
                     </div>
                     <!--end::Body-->
                 </div>
@@ -63,8 +84,8 @@
                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                             </g>
                         </svg><!--end::Svg Icon--></span>
-                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">22</span>
-                        <span class="font-weight-bold text-muted font-size-sm">Laki Laki</span>
+                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{ $male_count }}</span>
+                        <span class="font-weight-bold text-muted font-size-sm">Pengunjung Laki Laki</span>
                     </div>
                     <!--end::Body-->
                 </div>
@@ -80,8 +101,8 @@
                                 <path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero"/>
                             </g>
                         </svg><!--end::Svg Icon--></span>
-                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">22</span>
-                        <span class="font-weight-bold text-muted font-size-sm">Laki Laki</span>
+                        <span class="card-title font-weight-bolder text-dark-75 font-size-h2 mb-0 mt-6 d-block">{{$female_count}}</span>
+                        <span class="font-weight-bold text-muted font-size-sm">Pengunjung Perempuan</span>
                     </div>
                     <!--end::Body-->
                 </div>
@@ -89,4 +110,5 @@
         </div>
         
     </div>
+    @endvolt
 </x-layouts.app>
