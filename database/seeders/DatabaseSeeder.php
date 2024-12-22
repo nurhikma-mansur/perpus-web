@@ -24,16 +24,33 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $s = User::create([
-            'name' => 'Rahmat Riyadi',
-            'username' => '60200120116',
-            'password' => '60200120116',
+            'name' => 'Nurhikma',
+            'username' => '60200120113',
+            'password' => '60200120113',
         ]);
 
         $s->student()->create([
-            'fullname' => 'Rahmat Riyadi',
-            'nim' => '60200120116',
+            'fullname' => 'Nurhikma',
+            'nim' => '60200120113',
             'major' => 'Information Technology',
         ]);
+        
+        for ($i=20; $i < 40; $i++) { 
+
+            $name = fake()->name;
+
+            $s = User::create([
+                'name' => $name,
+                'username' => '602001201'.$i,
+                'password' => '602001201'.$i,
+            ]);
+    
+            $s->student()->create([
+                'name' => $name,
+                'password' => '602001201'.$i,
+                'major' => fake()->randomElement(['Teknik Informatika', 'Teknik Arsitektur', 'Teknik Perencanaan Wilayah dan Kota'])
+            ]);
+        }
 
     }
 }

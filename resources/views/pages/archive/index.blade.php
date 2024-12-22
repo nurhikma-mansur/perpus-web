@@ -29,7 +29,7 @@ $delete_data = function (Archive $archive){
 
 ?>
 
-<x-layouts.app>
+<x-layouts.app pageTitle="Daftar Arsip Skripsi" :breadcrumbs="['Arsip Skripsi', 'Daftar Arsip Skripsi'] " >
     @volt
     <div class="container">
         <div class="card card-custom">

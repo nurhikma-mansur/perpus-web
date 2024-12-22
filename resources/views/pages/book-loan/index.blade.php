@@ -29,7 +29,7 @@ $delete_data = function (Loan $loan){
 
 ?>
 
-<x-layouts.app>
+<x-layouts.app pageTitle="Daftar Peminjaman Buku" :breadcrumbs="['Buku Induk', 'Daftar Peminjaman Buku'] " >
     @volt
     <div class="container">
         <div class="card card-custom">

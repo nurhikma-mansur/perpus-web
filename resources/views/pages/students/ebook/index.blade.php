@@ -29,7 +29,7 @@ $delete_data = function (Book $book){
 
 ?>
 
-<x-layouts.student>
+<x-layouts.student pageTitle="Daftar Buku" >
     @volt
     <div class="container">
         {{-- <div class="card card-custom">

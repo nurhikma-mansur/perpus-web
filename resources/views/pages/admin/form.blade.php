@@ -40,7 +40,7 @@ $submit = function (){
 
 ?>
 
-<x-layouts.app>
+<x-layouts.app pageTitle="Form Admin" :breadcrumbs="['Master Data', 'Form Admin'] "  >
     @volt
     <div class="container">
         <form wire:submit="submit" action="">

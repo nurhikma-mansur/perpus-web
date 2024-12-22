@@ -40,7 +40,7 @@ $submit = function (){
 
 ?>
 
-<x-layouts.app>
+<x-layouts.app pageTitle="Form Peminjaman Buku" :breadcrumbs="['Buku Induk', 'Form Peminjaman Buku'] " >
     @volt
     <div class="container">
         <form wire:submit="submit" action="">

@@ -61,7 +61,7 @@ $download = function (Archive $archive){
 
 ?>
 
-<x-layouts.student>
+<x-layouts.student pageTitle="Arsip Skripsi" :breadcrumbs="['Arsip Skripsi']" >
     @volt
     <div class="container">
         <div class="card card-custom">

@@ -29,7 +29,7 @@ $delete_data = function (User $user){
 
 ?>
 
-<x-layouts.app>
+<x-layouts.app pageTitle="Daftar Admin" :breadcrumbs="['Master Data', 'Daftar Admin'] " >
     @volt
     <div class="container">
         <div class="card card-custom">
@@ -50,6 +50,7 @@ $delete_data = function (User $user){
                             <th>#</th>
                             <th>Name</th>
                             <th>Username</th>
+                            <th>Status</th>
                             <th class="text-right" >Aksi</th.>
                         </tr>
                     </thead>
@@ -59,6 +60,7 @@ $delete_data = function (User $user){
                             <td style="align-content: center;" >{{ $i+1 }}</td>
                             <td style="align-content: center;" >{{ $item->name }}</td>
                             <td style="align-content: center;" >{{ $item->username }}</td>
+                            <td style="align-content: center;" >{{ $item->is_admin ? 'Admin' : 'Mahasiswa' }}</td>
                             <td style="align-content: center;"  class="text-right" >
                                 <button type="button" wire:click="delete_data('{{ $item->id }}')" wire:confirm="Apakah yakin data ini ingin dihapus?"  class="btn btn-sm btn-light-danger mr-2">
                                     Hapus

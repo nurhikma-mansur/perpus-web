@@ -43,7 +43,7 @@ $submit = function (){
 ?>
 
 
-<x-layouts.app>
+<x-layouts.app pageTitle="Form Arsip Skripsi" :breadcrumbs="['Arsip Skripsi', 'Form Arsip Skripsi'] " >
     @volt
     <div class="container">
         <form wire:submit="submit" action="">
@@ -79,7 +79,7 @@ $submit = function (){
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Nama</label>
-                                <input wire:model="form.name" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+                                <input wire:model="form.name" type="text" class="form-control form-control-solid" placeholder="Nama"/>
                                 @error('form.name')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>
                                 @enderror
@@ -88,7 +88,7 @@ $submit = function (){
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Nim</label>
-                                <input wire:model="form.nim" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+                                <input wire:model="form.nim" type="text" class="form-control form-control-solid" placeholder="Nim"/>
                                 @error('form.nim')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>
                                 @enderror
@@ -117,7 +117,7 @@ $submit = function (){
                         <div class="col-6">
                             <div class="form-group">
                                 <label>Tahun Lulus</label>
-                                <input wire:model="form.graduation_year" type="number" class="form-control form-control-solid" placeholder="Example input"/>
+                                <input wire:model="form.graduation_year" type="number" class="form-control form-control-solid" placeholder="Tahun Lulus"/>
                                 @error('form.graduation_year')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>
                                 @enderror
@@ -126,7 +126,7 @@ $submit = function (){
                         <div class="col-12">
                             <div class="form-group">
                                 <label>Judul Skripsi</label>
-                                <input wire:model="form.title" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+                                <input wire:model="form.title" type="text" class="form-control form-control-solid" placeholder="Judul Skripsi"/>
                                 @error('form.title')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>
                                 @enderror
@@ -135,7 +135,7 @@ $submit = function (){
                         <div class="col-12">
                             <div class="form-group">
                                 <label>No Klasifikasi</label>
-                                <input wire:model="form.classification_number" type="text" class="form-control form-control-solid" placeholder="Example input"/>
+                                <input wire:model="form.classification_number" type="text" class="form-control form-control-solid" placeholder="No Klasifikasi"/>
                                 @error('form.classification_number')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>
                                 @enderror
