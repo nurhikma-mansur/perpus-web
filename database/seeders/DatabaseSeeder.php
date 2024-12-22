@@ -46,8 +46,8 @@ class DatabaseSeeder extends Seeder
             ]);
     
             $s->student()->create([
-                'name' => $name,
-                'password' => '602001201'.$i,
+                'fullname' => $name,
+                'nim' => '602001201'.$i,
                 'major' => fake()->randomElement(['Teknik Informatika', 'Teknik Arsitektur', 'Teknik Perencanaan Wilayah dan Kota'])
             ]);
         }
