@@ -73,6 +73,7 @@ $delete_data = function (User $user){
                         @endforeach
                     </tbody>
                 </table>
+                {{ $data->links('components.pagination') }}
             </div>
         </div>
     </div>
