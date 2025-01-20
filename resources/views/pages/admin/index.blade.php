@@ -1,4 +1,36 @@
-<x-layouts.app>
+<?php 
+
+use function Livewire\Volt\{state, with, usesPagination};
+use App\Models\User;
+
+usesPagination();
+
+state([
+    'perpage' => 10,
+    'keyword' => '',
+]);
+
+with(fn() => [
+    'data' => User::
+    when(!empty($this->keyword), function($q){
+        $q->where('title', 'LIKE', "%$this->keyword%");
+    })
+    ->latest()
+    ->paginate($this->perpage)
+]);
+
+$delete_data = function (User $user){
+    try {
+        $user->delete();
+    } catch (\Throwable $th) {
+        throw $th;
+    }  
+};
+
+?>
+
+<x-layouts.app pageTitle="Daftar Admin" :breadcrumbs="['Master Data', 'Daftar Admin'] " >
+    @volt
     <div class="container">
         <div class="card card-custom">
             <div class="card-header">
@@ -23,25 +55,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 0; $i < 5; $i++)
+                        @foreach ($data as $i => $item)
                         <tr>
                             <td style="align-content: center;" >{{ $i+1 }}</td>
-                            <td style="align-content: center;" >{{ fake()->sentence }}</td>
-                            <td style="align-content: center;" >{{ fake()->name }}</td>
-                            <td style="align-content: center;" >{{ fake()->year }}</td>
+                            <td style="align-content: center;" >{{ $item->name }}</td>
+                            <td style="align-content: center;" >{{ $item->username }}</td>
+                            <td style="align-content: center;" >{{ $item->is_admin ? 'Admin' : 'Mahasiswa' }}</td>
                             <td style="align-content: center;"  class="text-right" >
-                                <button class="btn btn-sm btn-light-danger mr-2">
+                                <button type="button" wire:click="delete_data('{{ $item->id }}')" wire:confirm="Apakah yakin data ini ingin dihapus?"  class="btn btn-sm btn-light-danger mr-2">
                                     Hapus
                                 </button>
-                                <button class="btn btn-sm btn-light-primary">
+                                <a href="/admin/master-data/admin/detail/{{ $item->id }}" class="btn btn-sm btn-light-primary">
                                     Detail
-                                </button>
+                                </a>
                             </td>
                         </tr>
-                        @endfor
+                        @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    @endvolt
 </x-layouts.app>

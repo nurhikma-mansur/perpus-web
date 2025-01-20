@@ -1,11 +1,23 @@
+<?php
+
+use function Livewire\Volt\{state};
+
+$logout = function (){
+    Auth::logout();
+    return redirect('/login');
+};
+
+?>
+
 <div id="kt_header" class="header header-fixed">
+    @volt
     <!--begin::Container-->
     <div class="container d-flex align-items-stretch">
         <!--begin::Header Logo-->
         <div class="header-logo">
             <a href="index.html">
-                <img alt="Logo" src="assets/media/logos/logo-letter-9.png" class="logo-default max-h-40px" />
-                <img alt="Logo" src="assets/media/logos/logo-letter-1.png" class="logo-sticky max-h-40px" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/logo.svg') }}" class="logo-default max-h-60px" />
+                <img alt="Logo" src="{{ asset('assets/media/logos/logo.svg') }}" class="logo-sticky max-h-60px" />
             </a>
         </div>
         <!--end::Header Logo-->
@@ -45,9 +57,9 @@
                 <div class="topbar-item" data-toggle="dropdown" data-offset="0px,0px">
                     <div class="btn btn-icon btn-hover-transparent-white d-flex align-items-center btn-lg px-md-2 w-md-auto">
                         <span class="text-white opacity-70 font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
-                        <span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">Sean</span>
+                        <span class="text-white opacity-90 font-weight-bolder font-size-base d-none d-md-inline mr-4">{{ auth()->user()->name }}</span>
                         <span class="symbol symbol-35">
-                            <span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">S</span>
+                            <span class="symbol-label text-white font-size-h5 font-weight-bold bg-white-o-30">{{ auth()->user()->name[0] }}</span>
                         </span>
                     </div>
                 </div>
@@ -62,72 +74,15 @@
                         </div>
                         <!--end::Symbol-->
                         <!--begin::Text-->
-                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">Sean Stone</div>
-                        <span class="label label-light-success label-lg font-weight-bold label-inline">3 messages</span>
+                        <div class="text-dark m-0 flex-grow-1 mr-3 font-size-h5">{{ auth()->user()->name}}</div>
                         <!--end::Text-->
                     </div>
                     <div class="separator separator-solid"></div>
                     <!--end::Header-->
                     <!--begin::Nav-->
-                    <div class="navi navi-spacer-x-0 pt-5">
-                        <!--begin::Item-->
-                        <a href="custom/apps/user/profile-1/personal-information.html" class="navi-item px-8">
-                            <div class="navi-link">
-                                <div class="navi-icon mr-2">
-                                    <i class="flaticon2-calendar-3 text-success"></i>
-                                </div>
-                                <div class="navi-text">
-                                    <div class="font-weight-bold">My Profile</div>
-                                    <div class="text-muted">Account settings and more
-                                    <span class="label label-light-danger label-inline font-weight-bold">update</span></div>
-                                </div>
-                            </div>
-                        </a>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <a href="custom/apps/user/profile-3.html" class="navi-item px-8">
-                            <div class="navi-link">
-                                <div class="navi-icon mr-2">
-                                    <i class="flaticon2-mail text-warning"></i>
-                                </div>
-                                <div class="navi-text">
-                                    <div class="font-weight-bold">My Messages</div>
-                                    <div class="text-muted">Inbox and tasks</div>
-                                </div>
-                            </div>
-                        </a>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <a href="custom/apps/user/profile-2.html" class="navi-item px-8">
-                            <div class="navi-link">
-                                <div class="navi-icon mr-2">
-                                    <i class="flaticon2-rocket-1 text-danger"></i>
-                                </div>
-                                <div class="navi-text">
-                                    <div class="font-weight-bold">My Activities</div>
-                                    <div class="text-muted">Logs and notifications</div>
-                                </div>
-                            </div>
-                        </a>
-                        <!--end::Item-->
-                        <!--begin::Item-->
-                        <a href="custom/apps/userprofile-1/overview.html" class="navi-item px-8">
-                            <div class="navi-link">
-                                <div class="navi-icon mr-2">
-                                    <i class="flaticon2-hourglass text-primary"></i>
-                                </div>
-                                <div class="navi-text">
-                                    <div class="font-weight-bold">My Tasks</div>
-                                    <div class="text-muted">latest tasks and projects</div>
-                                </div>
-                            </div>
-                        </a>
-                        <!--end::Item-->
-                        <!--begin::Footer-->
-                        <div class="navi-separator mt-3"></div>
+                    <div class="navi navi-spacer-x-0 ">
                         <div class="navi-footer px-8 py-5">
-                            <a href="custom/user/login-v2.html" target="_blank" class="btn btn-light-primary font-weight-bold">Sign Out</a>
-                            <a href="custom/user/login-v2.html" target="_blank" class="btn btn-clean font-weight-bold">Upgrade Plan</a>
+                            <a href="javascript:;" wire:click="logout" class="btn btn-light-danger btn-block font-weight-bold">Keluar</a>
                         </div>
                         <!--end::Footer-->
                     </div>
@@ -140,4 +95,5 @@
         <!--end::Topbar-->
     </div>
     <!--end::Container-->
+    @endvolt
 </div>

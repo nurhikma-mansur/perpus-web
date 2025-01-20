@@ -5,7 +5,7 @@
             <!--begin::Heading-->
             <div class="d-flex flex-column">
                 <!--begin::Title-->
-                <h2 class="text-white font-weight-bold my-2 mr-5">Dashboard</h2>
+                <h2 class="text-white font-weight-bold my-2 mr-5">{{ $pageTitle ?? 'Dashboard' }}</h2>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <div class="d-flex align-items-center font-weight-bold my-2">
@@ -15,20 +15,24 @@
                     </a>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Dashboard</a>
+                    {{-- <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
+                    <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Dashboard</a> --}}
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
-                    <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">Latest Updated</a>
                     <!--end::Item-->
+                    
+                    @foreach ($breadcrumbs ?? [] as $breadcrumb)
+                    <span class="label label-dot label-sm bg-white opacity-75 mx-3"></span>
+                    <a href="" class="text-white text-hover-white opacity-75 hover-opacity-100">{{ $breadcrumb }}</a>
+                    @endforeach
+
                 </div>
                 <!--end::Breadcrumb-->
             </div>
             <!--end::Heading-->
         </div>
         <!--end::Info-->
-        <!--begin::Toolbar-->
+        {{-- <!--begin::Toolbar-->
         <div class="d-flex align-items-center">
             <!--begin::Button-->
             <a href="#" class="btn btn-transparent-white font-weight-bold py-3 px-6 mr-2">Reports</a>
@@ -108,6 +112,6 @@
             </div>
             <!--end::Dropdown-->
         </div>
-        <!--end::Toolbar-->
+        <!--end::Toolbar--> --}}
     </div>
 </div>
