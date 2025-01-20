@@ -75,24 +75,11 @@ $delete_data = function (Book $book){
         </div>
 
         <div class="row">
-<<<<<<< HEAD
-            @for ($i = 0; $i < 9; $i++)
-            <div class="col-md-4 col-xl-4 col-sm-6 col-xs-12 mb-9">
-                <div class="card card-custom">
-                    <div class="card-header py-4">
-                        <div class="card-title">
-                            <h5 class="h6 m-0">
-                                Nurhikma
-                                <small class="d-block text-dark mt-2 mb-0" >Teknik Informatika</small>
-                            </h5>
-                        </div>
-=======
             @foreach ($data as $i => $item)
             <div class="col-md-3 col-xl-3 col-sm-6 col-xs-12 mb-9">
                 <div class="card card-custom" >
                     <div class=" p-6" >
                         <img style="width: 100%; height: 250px; object-fit: contain" src="{{ asset('storage/'.$item->cover) }}" alt="">
->>>>>>> origin/dev
                     </div>
                     <div class="px-6 py-2" >
                         <h5 class="h6 m-0 mb-5">
