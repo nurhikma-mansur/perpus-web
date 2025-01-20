@@ -74,19 +74,17 @@ $delete_data = function (User $user){
                     </tbody>
                 </table>
             </div>
-
-            <div class="d-flex justify-content-between align-items-center flex-wrap py-2 mt-1">
-                <div class="d-flex align-items-center py-3">
-                    <select wire:model.live="perpage" class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-white" style="width: 75px;">
-                        <option value="6">6</option>
-                        <option value="12">12</option>
-                        <option value="24">24</option>
-                    </select>
-                    <span class="text-primary">Menampilkan {{ $data->links()->paginator->count() }} dari {{ $data->links()->paginator->total() }} data</span>
-                </div>
-                {{ $data->links('components.pagination') }}
+        </div>
+        <div class="d-flex justify-content-between align-items-center flex-wrap py-2 mt-1">
+            <div class="d-flex align-items-center py-3">
+                <select wire:model.live="perpage" class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-white" style="width: 75px;">
+                    <option value="6">6</option>
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                </select>
+                <span class="text-primary">Menampilkan {{ $data->links()->paginator->count() }} dari {{ $data->links()->paginator->total() }} data</span>
             </div>
-
+            {{ $data->links('components.pagination') }}
         </div>
     </div>
     @endvolt
