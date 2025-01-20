@@ -46,7 +46,7 @@
                     <div class="card-header py-4">
                         <div class="card-title">
                             <h5 class="h6 m-0">
-                                Rahmat Riyadi Syam
+                                Nurhikma
                                 <small class="d-block text-dark mt-2 mb-0" >Teknik Informatika</small>
                             </h5>
                         </div>
