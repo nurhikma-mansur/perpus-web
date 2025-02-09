@@ -60,7 +60,7 @@ $submit = function (){
                         <div class="col-6">
                             <div class="form-group">
                                 <label>File</label>
-                                <input wire:model="form.file" type="file" class="form-control form-control-solid" placeholder="Example input"/>
+                                <input wire:model.live="{{ $is_update ? 'form.newFile' : 'form.file' }}" type="file" class="form-control form-control-solid" placeholder="Example input"/>
                                 @error('form.file')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>
                                 @enderror
@@ -106,10 +106,10 @@ $submit = function (){
                                 <label>Tipe Buku</label>
                                 <select wire:model="form.type" class="form-control form-control-solid">
                                     <option>-- Jenis Buku --</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
+                                    <option>Buku ajar</option>
+                                    <option>Buku Teks</option>
+                                    <option>Akademik</option>
+                                    <option>Panduan Teknis</option>
                                 </select>
                                 @error('form.type')
                                     <p class="text-danger mt-1" >{{ $message  }}</p>

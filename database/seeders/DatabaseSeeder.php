@@ -23,34 +23,34 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
 
-        $s = User::create([
-            'name' => 'Nurhikma',
-            'username' => '60200120113',
-            'password' => '60200120113',
-        ]);
+        // $s = User::create([
+        //     'name' => 'Nurhikma',
+        //     'username' => '60200120113',
+        //     'password' => '60200120113',
+        // ]);
 
-        $s->student()->create([
-            'fullname' => 'Nurhikma',
-            'nim' => '60200120113',
-            'major' => 'Information Technology',
-        ]);
+        // $s->student()->create([
+        //     'fullname' => 'Nurhikma',
+        //     'nim' => '60200120113',
+        //     'major' => 'Information Technology',
+        // ]);
         
-        for ($i=20; $i < 40; $i++) { 
+        // for ($i=20; $i < 40; $i++) { 
 
-            $name = fake()->name;
+        //     $name = fake()->name;
 
-            $s = User::create([
-                'name' => $name,
-                'username' => '602001201'.$i,
-                'password' => '602001201'.$i,
-            ]);
+        //     $s = User::create([
+        //         'name' => $name,
+        //         'username' => '602001201'.$i,
+        //         'password' => '602001201'.$i,
+        //     ]);
     
-            $s->student()->create([
-                'fullname' => $name,
-                'nim' => '602001201'.$i,
-                'major' => fake()->randomElement(['Teknik Informatika', 'Teknik Arsitektur', 'Teknik Perencanaan Wilayah dan Kota'])
-            ]);
-        }
+        //     $s->student()->create([
+        //         'fullname' => $name,
+        //         'nim' => '602001201'.$i,
+        //         'major' => fake()->randomElement(['Teknik Informatika', 'Teknik Arsitektur', 'Teknik Perencanaan Wilayah dan Kota'])
+        //     ]);
+        // }
 
     }
 }

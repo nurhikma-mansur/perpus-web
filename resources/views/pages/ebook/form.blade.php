@@ -37,10 +37,10 @@
                                 <label>Tipe Buku</label>
                                 <select class="form-control form-control-solid">
                                  <option>-- Jenis Buku --</option>
-                                 <option>2</option>
-                                 <option>3</option>
-                                 <option>4</option>
-                                 <option>5</option>
+                                 <option>Buku ajar</option>
+                                 <option>Buku Teks</option>
+                                 <option>Akademik</option>
+                                 <option>Panduan Teknis</option>
                                 </select>
                             </div>
                         </div>
