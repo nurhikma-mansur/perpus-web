@@ -23,17 +23,17 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true
         ]);
 
-        // $s = User::create([
-        //     'name' => 'Nurhikma',
-        //     'username' => '60200120113',
-        //     'password' => '60200120113',
-        // ]);
+        $s = User::create([
+            'name' => 'Nurhikma',
+            'username' => '60200120113',
+            'password' => '60200120113',
+        ]);
 
-        // $s->student()->create([
-        //     'fullname' => 'Nurhikma',
-        //     'nim' => '60200120113',
-        //     'major' => 'Information Technology',
-        // ]);
+        $s->student()->create([
+            'fullname' => 'Nurhikma',
+            'nim' => '60200120113',
+            'major' => 'Information Technology',
+        ]);
         
         // for ($i=20; $i < 40; $i++) { 
 

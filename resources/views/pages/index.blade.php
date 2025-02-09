@@ -13,7 +13,7 @@ mount(function (){
     $this->female_count = Visitor::where('gender', 'P')->count(); 
     $this->book_count = Book::count();
     $this->archive_count = Archive::count();
-    $this->admin_count = User::where('role', 'admin')->count();
+    $this->admin_count = User::where('is_admin', true)->count();
 });
 
 ?>
